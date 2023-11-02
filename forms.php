@@ -18,12 +18,12 @@
         margin-top: 5px;
         margin-bottom: 10px;
         height: 50px;
-        width: 25%;
-        box-shadow: 0px 5px 10px #171717;
+        width: 500px;
+        /* box-shadow: 0px 5px 10px #171717; */
         font-size: 24px;
         color: #6a67fa;
-        display: flex;
-        flex-direction: column;
+        /* display: flex; */
+        /* flex-direction: column; */
         /* justify-content: right !important; */
     }
 
@@ -35,7 +35,6 @@
         border-radius: 5px;
         height: 50px;
         width: 100px;
-        box-shadow: 0px 5px 10px #171717;
         font-size: 24px;
         transition: ease-in-out 300ms;
     }
@@ -45,8 +44,16 @@
     }
 
     form {
-        /* align-content: center;
-        align: center; */
+        border: 2px solid #333;
+        display: flex;
+        flex-direction: column;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        align-items: center;
+        width: 100%;
+        border-radius: 20px;
+        background: #2e2e2e;
+        box-shadow: 0px 15px 20px #17171778;
     }
 
 </style>
@@ -58,17 +65,17 @@
 
 <form method="POST" action="">
     <div class="name">
-        <label for="name">Name:</label>
+        <label for="name">Name:</label><br>
         <input type="text" name="name" id="name" placeholder="Enter your name!" />
         <span class="error">*<?= $name_err ?></span>
     </div>
     <div class="email">
-        <label for="email">Email:</label>
+        <label for="email">Email:</label><br>
         <input type="email" name="email" id="email" placeholder="Enter your Email!" />
         <span class="error">*<?= $email_err ?></span>
     </div>
     <div class="password">
-        <label for="password">Password:</label>
+        <label for="password">Password:</label><br>
         <input type="password" name="password" id="password" placeholder="Enter your Password!" />
         <span class="error">*<?= $password_err ?></span>
     </div>
