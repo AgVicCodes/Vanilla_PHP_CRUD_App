@@ -55,16 +55,19 @@
         background: #2e2e2e;
         box-shadow: 0px 15px 20px #17171778;
         transition: ease-in-out 500ms;
-        transition-property: "translate";
+        /* transition-property: "translate"; */
     }
 
     form:hover {
-        translate: 0px 30px;
         /* rotate: 90deg; */
-        /* scale: 0.8; */
+        scale: 1.03;
         /* transform: skewY(45deg); */
         /* transform: scaleY(10); */
         background: #353535;
+    }
+    
+    #form_2:hover {
+        translate: 0px 30px;
     }
 
 </style>
@@ -77,32 +80,8 @@
     $name = $email = $password = "";
     $name_err = $email_err = $password_err = "";
     
-?>
-
-<form method="POST" action="">
-    <div class="name">
-        <label for="name">Name:</label><br>
-        <input type="text" name="name" id="name" placeholder="Enter your name!" />
-        <span class="error">*<?= $name_err ?></span>
-    </div>
-    <div class="email">
-        <label for="email">Email:</label><br>
-        <input type="email" name="email" id="email" placeholder="Enter your Email!" />
-        <span class="error">*<?= $email_err ?></span>
-    </div>
-    <div class="password">
-        <label for="password">Password:</label><br>
-        <input type="password" name="password" id="password" placeholder="Enter your Password!" />
-        <span class="error">*<?= $password_err ?></span>
-    </div>
-    <input type="submit" name="submit" class="submit" value="Submit"></input>
-    <br>
-</form>    
-
-<?php 
-
     // Authentication logic
-    if ([$_SERVER['REQUEST_METHOD'] == "POST"]) {
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         if (empty($_POST['name'])) {
             $name_err = "Name is required";
@@ -140,6 +119,50 @@
         $data = htmlspecialchars($data);
         return $data;
     }
+
+?>
+
+<form method="POST" action="">
+    <div class="name">
+        <label for="name">Name:</label><br>
+        <input type="text" name="name" id="name" placeholder="Enter your name!" />
+        <span class="error">*<?= $name_err ?></span>
+    </div>
+    <div class="email">
+        <label for="email">Email:</label><br>
+        <input type="email" name="email" id="email" placeholder="Enter your Email!" />
+        <span class="error">*<?= $email_err ?></span>
+    </div>
+    <div class="password">
+        <label for="password">Password:</label><br>
+        <input type="password" name="password" id="password" placeholder="Enter your Password!" />
+        <span class="error">*<?= $password_err ?></span>
+    </div>
+    <input type="submit" name="submit" class="submit" value="Submit"></input>
+    <br>
+</form> 
+
+<form method="POST" action="" id="form_2">
+    <div class="name">
+        <label for="name">Name:</label><br>
+        <input type="text" name="name" id="name" placeholder="Enter your name!" />
+        <span class="error">*<?= $name_err ?></span>
+    </div>
+    <div class="email">
+        <label for="email">Email:</label><br>
+        <input type="email" name="email" id="email" placeholder="Enter your Email!" />
+        <span class="error">*<?= $email_err ?></span>
+    </div>
+    <div class="password">
+        <label for="password">Password:</label><br>
+        <input type="password" name="password" id="password" placeholder="Enter your Password!" />
+        <span class="error">*<?= $password_err ?></span>
+    </div>
+    <input type="submit" name="submit" class="submit" value="Submit"></input>
+    <br>
+</form> 
+
+<?php 
 
     // trim_data($name);
 
@@ -197,5 +220,6 @@
     // echo "<br>";
     // echo "<br>";
     // echo "<br>";
+    
 
 ?>
