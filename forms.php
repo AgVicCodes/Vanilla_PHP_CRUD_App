@@ -54,6 +54,14 @@
         border-radius: 20px;
         background: #2e2e2e;
         box-shadow: 0px 15px 20px #17171778;
+        transition: ease-in-out 300ms;
+        transition-property: "translate";
+    }
+
+    form:hover {
+        translate: (y-100);
+        background: #353535;
+        
     }
 
 </style>
