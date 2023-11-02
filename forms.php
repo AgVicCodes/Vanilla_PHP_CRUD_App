@@ -54,14 +54,17 @@
         border-radius: 20px;
         background: #2e2e2e;
         box-shadow: 0px 15px 20px #17171778;
-        transition: ease-in-out 300ms;
+        transition: ease-in-out 500ms;
         transition-property: "translate";
     }
 
     form:hover {
-        translate: (y-100);
+        translate: 0px 30px;
+        /* rotate: 90deg; */
+        /* scale: 0.8; */
+        /* transform: skewY(45deg); */
+        /* transform: scaleY(10); */
         background: #353535;
-        
     }
 
 </style>
