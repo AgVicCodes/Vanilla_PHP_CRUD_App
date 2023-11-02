@@ -27,7 +27,7 @@
         /* justify-content: right !important; */
     }
 
-    button {
+    .submit {
         background: #1a8733;
         color: #fff;
         margin-top: 10px;
@@ -39,7 +39,7 @@
         transition: ease-in-out 300ms;
     }
     
-    button:hover {
+    .submit:hover {
         background: #2a4423;
     }
 
@@ -70,8 +70,13 @@
 </style>
 
 <?php 
+
+    // FORMS
+    
+    // Define variables and set as empty
     $name = $email = $password = "";
     $name_err = $email_err = $password_err = "";
+    
 ?>
 
 <form method="POST" action="">
@@ -90,19 +95,12 @@
         <input type="password" name="password" id="password" placeholder="Enter your Password!" />
         <span class="error">*<?= $password_err ?></span>
     </div>
-    <button type="submit">Submit</button>
+    <input type="submit" name="submit" class="submit" value="Submit"></input>
     <br>
 </form>    
 
-
 <?php 
 
-    // FORMS
-    
-    // Define variables and set as empty
-    $name = $email = $password = "";
-    $name_err = $email_err = $password_err = "";
-    
     // Authentication logic
     if ([$_SERVER['REQUEST_METHOD'] == "POST"]) {
 
@@ -154,50 +152,50 @@
     // Post also works
     // $name = htmlspecialchars($_POST['name']);
     // echo $name;
-    echo "<br>";
+    // echo "<br>";
 
     // $email = htmlspecialchars($_POST['email']);
     // echo $name;
-    echo "<br>";
+    // echo "<br>";
 
     // $password = htmlspecialchars($_POST['password']);
     // echo $name;
-    echo "<br>";
+    // echo "<br>";
     
     
 
 
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    
-?>  
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<br>";
+
+?>
