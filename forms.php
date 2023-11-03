@@ -47,14 +47,12 @@
         border: 2px solid #333;
         display: flex;
         flex-direction: column;
-        padding-top: 30px;
-        padding-left: 90px;
-        padding-bottom: 30px;
+        padding: 20px;
         /* align-items: center; */
-        width: 100%;
+        width: 100rem;
         border-radius: 20px;
         background: #2e2e2e;
-        box-shadow: 0px 15px 20px #17171778;
+        box-shadow: 15px 15px 20px #17171778;
         transition: ease-in-out 500ms;
         /* transition-property: "translate"; */
     }
@@ -86,35 +84,29 @@
 
         if (empty($_POST['name'])) {
             $name_err = "Name is required";
-            echo "<br>";
         } elseif (!preg_match("/^[a-zA-Z-' ]*$/", $name)) {
             $name = trim_data($_POST['name']);
             echo "Name is: " . $name;
-            echo "<br>";
         } else {
             $name_err = "Name is invalid";
-            echo "<br>";
         }
 
         if (empty($_POST['email'])) {
             $email_err = "Email is required";
-            echo "<br>";
-        } elseif (filter_var(["EMAIL_VALIDATE"])) {
-            $email = trim_data($_POST['email']);
-            echo "Email Address is: " . $email;
-            echo "<br>";
         } else {
-            $email_err = "Email is invalid";
-            echo "<br>";
+            $email = trim_data($_POST['email']);
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $email_err = "Email is invalid";
+            } else {
+                echo "Email Address is: " . $email;
+            }
         }
 
         if (empty($_POST['password'])) {
             $password_err = "Password is required";
-            echo "<br>";
         } else {
             $password = trim_data($_POST['password']);
             echo "Password was: " . md5($password);
-            echo "<br>";
         }
 
     }
@@ -137,7 +129,7 @@
     </div>
     <div class="email">
         <label for="email">Email:</label><br>
-        <input type="email" name="email" id="email" placeholder="Enter your Email!" />
+        <input type="" name="email" id="email" placeholder="Enter your Email!" />
         <span class="error">*<?= $email_err ?></span>
     </div>
     <div class="password">
