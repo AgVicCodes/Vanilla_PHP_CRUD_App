@@ -48,8 +48,9 @@
         display: flex;
         flex-direction: column;
         padding-top: 30px;
+        padding-left: 90px;
         padding-bottom: 30px;
-        align-items: center;
+        /* align-items: center; */
         width: 100%;
         border-radius: 20px;
         background: #2e2e2e;
@@ -77,7 +78,7 @@
     // FORMS
     
     // Define variables and set as empty
-    $name = $email = $password = "";
+    $name = $email = $password = $class = "";
     $name_err = $email_err = $password_err = "";
     
     // Authentication logic
@@ -86,18 +87,24 @@
         if (empty($_POST['name'])) {
             $name_err = "Name is required";
             echo "<br>";
-        } else {
+        } elseif (!preg_match("/^[a-zA-Z-' ]*$/", $name)) {
             $name = trim_data($_POST['name']);
             echo "Name is: " . $name;
+            echo "<br>";
+        } else {
+            $name_err = "Name is invalid";
             echo "<br>";
         }
 
         if (empty($_POST['email'])) {
             $email_err = "Email is required";
             echo "<br>";
-        } else {
+        } elseif (filter_var(["EMAIL_VALIDATE"])) {
             $email = trim_data($_POST['email']);
             echo "Email Address is: " . $email;
+            echo "<br>";
+        } else {
+            $email_err = "Email is invalid";
             echo "<br>";
         }
 
