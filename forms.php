@@ -1,76 +1,3 @@
-<style>
-    body {
-        background: #333;
-        color: #777;
-        font-family: "outfit";
-        margin: 100px;
-    }
-
-    label {
-        font-size: 20px;
-        /* margin-bottom: 10px; */
-    }
-
-    input {
-        background: #464646;
-        border: 3px solid grey;
-        border-radius: 5px;
-        margin-top: 5px;
-        margin-bottom: 10px;
-        height: 50px;
-        width: 500px;
-        /* box-shadow: 0px 5px 10px #171717; */
-        font-size: 24px;
-        color: #6a67fa;
-        /* display: flex; */
-        /* flex-direction: column; */
-        /* justify-content: right !important; */
-    }
-
-    .submit {
-        background: #1a8733;
-        color: #fff;
-        margin-top: 10px;
-        border: 2px solid #0a4703;
-        border-radius: 5px;
-        height: 50px;
-        width: 100px;
-        font-size: 24px;
-        transition: ease-in-out 300ms;
-    }
-    
-    .submit:hover {
-        background: #2a4423;
-    }
-
-    form {
-        border: 2px solid #333;
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-        /* align-items: center; */
-        width: 100rem;
-        border-radius: 20px;
-        background: #2e2e2e;
-        box-shadow: 15px 15px 20px #17171778;
-        transition: ease-in-out 500ms;
-        /* transition-property: "translate"; */
-    }
-
-    form:hover {
-        /* rotate: 90deg; */
-        scale: 1.03;
-        /* transform: skewY(45deg); */
-        /* transform: scaleY(10); */
-        background: #353535;
-    }
-    
-    #form_2:hover {
-        translate: 0px 30px;
-    }
-
-</style>
-
 <?php 
 
     // FORMS
@@ -121,26 +48,37 @@
 
 ?>
 
-<form method="POST" action="">
-    <div class="name">
-        <label for="name">Name:</label><br>
-        <input type="text" name="name" id="name" placeholder="Enter your name!" />
-        <span class="error">*<?= $name_err ?></span>
-    </div>
-    <div class="email">
-        <label for="email">Email:</label><br>
-        <input type="" name="email" id="email" placeholder="Enter your Email!" />
-        <span class="error">*<?= $email_err ?></span>
-    </div>
-    <div class="password">
-        <label for="password">Password:</label><br>
-        <input type="password" name="password" id="password" placeholder="Enter your Password!" />
-        <span class="error">*<?= $password_err ?></span>
-    </div>
-    <input type="submit" name="submit" class="submit" value="Submit"></input>
-    <br>
-</form> 
 
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>    
+        <form method="POST" action="">
+            <a href="./style.css">Link to style</a>
+            <div class="name">
+                <label for="name">Name:</label><br>
+                <input type="text" name="name" id="name" placeholder="Enter your name!" />
+                <span class="error">*<?= $name_err ?></span>
+            </div>
+            <div class="email">
+                <label for="email">Email:</label><br>
+                <input type="" name="email" id="email" placeholder="Enter your Email!" />
+                <span class="error">*<?= $email_err ?></span>
+            </div>
+            <div class="password">
+                <label for="password">Password:</label><br>
+                <input type="password" name="password" id="password" placeholder="Enter your Password!" />
+                <span class="error">*<?= $password_err ?></span>
+            </div>
+            <input type="submit" name="submit" class="submit" value="Submit"></input>
+            <br>
+        </form> 
+    </body>
+</html>
+<!-- 
 <form method="POST" action="" id="form_2">
     <div class="name">
         <label for="name">Name:</label><br>
@@ -159,7 +97,7 @@
     </div>
     <input type="submit" name="submit" class="submit" value="Submit"></input>
     <br>
-</form> 
+</form>  -->
 
 <?php 
 
