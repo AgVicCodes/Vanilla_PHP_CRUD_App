@@ -6,7 +6,7 @@
         <!-- <link rel="stylesheet" href="style.css"> -->
         <title>Document</title>
         <style>
-            
+
             body {
                 background: #333;
                 color: #777;
@@ -19,11 +19,11 @@
                 /* margin-bottom: 10px; */
             }
             
-            #file {
+            /* #file {
                 border: 2px solid #1a5687;
                 background: #ff0;
                 height: 30px;
-            }
+            } */
 
             #submit {
                 background: #1a8733;
@@ -63,7 +63,7 @@
                 flex-direction: column;
                 padding: 20px;
                 /* align-items: center; */
-                width: 100rem;
+                width: 95%;
                 border-radius: 20px;
                 background: #2e2e2e;
                 box-shadow: 15px 15px 20px #17171778;
@@ -82,11 +82,21 @@
             #form_2:hover {
                 translate: 0px 30px;
             }
+
+            ::-webkit-file-upload-button {
+                background: #1a8733;
+                color: white;
+                font-size: 20px;
+                padding: 20px;
+                border-radius: 5px;
+                border: 2px solid #056b09;
+            }
         </style>
     </head>
     <body>
         <form action="" enctype="multipart/form-data">
             <input type="file" name="file" id=file>
+            <img src="" alt="">
             <input type="submit" name="submit" id="submit">
         </form>
     </body>
@@ -111,13 +121,16 @@
         2-5. Correct
     */
 
-    // $target_dir = "upload/";
-    // $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-    // $uploadOk = 1;
-    // $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-    // if (isset($_POST["submit"])) {
-    //     $check;
-    // }
-    
+    // To check if the file is an image
+    if(isset($_POST["submit"])) {
+        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+        
+    }
+
+
 ?>
