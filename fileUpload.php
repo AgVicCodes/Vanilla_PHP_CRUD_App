@@ -84,18 +84,18 @@
             }
 
             ::-webkit-file-upload-button {
-                background: #1a8733;
+                background: #555555;
                 color: white;
-                font-size: 20px;
+                font-size: 10px;
                 padding: 20px;
                 border-radius: 5px;
-                border: 2px solid #056b09;
+                border: 3px solid #656565;
             }
         </style>
     </head>
     <body>
-        <form action="./upload.php" enctype="multipart/form-data">
-            <input type="file" name="file" id=file>
+        <form action="./upload.php" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file">
             <img src="" alt="">
             <input type="submit" id="submit">
         </form>

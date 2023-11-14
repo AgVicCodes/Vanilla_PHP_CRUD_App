@@ -1,7 +1,44 @@
 <?php 
 
-    // file upload
+    if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+        echo "POST method not requested!";
+    }
+    
+    print_r($_FILES);
 
+    echo($_FILES["file"]["name"]) . "\n";
+
+    echo($_FILES["file"]["type"]) . "\n";
+
+    echo($_FILES["file"]["tmp_name"]) . "\n";
+
+    echo($_FILES["file"]["error"]) . "\n";
+    
+    echo($_FILES["file"]["size"]) . "\n";
+
+    
+
+
+    
+    
+
+
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+
+    // w3schools
+    
     /* 
         1. Add vars - $target_dir, $uploadpath, $uploadOk
         2. File upload script
@@ -13,43 +50,16 @@
         
         Correction:
         1. $target_dir = $target_dir, $uploadpath = $target_file, 
-           Missing - $imageFileType.
+            Missing - $imageFileType.
         2-5. Correct
     */
-
-    // w3schools
-
-    $target_dir = "uploads/";
-    $target_file = ""
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // GeeksforGeeks;
     
     /* $target_dir = $_POST["uploads"]."/"; 
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]); 
     $uploadOk = 1; 
-  
+    
     if($_SERVER["REQUEST_METHOD"] == "POST") { 
     
         // To check whether directory exist or not 
