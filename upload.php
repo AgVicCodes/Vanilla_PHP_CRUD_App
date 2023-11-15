@@ -14,7 +14,9 @@
         
         echo($_FILES["file"]["size"]) . "\n";
 
-        
+        switch ($_FILES["file"]["error"]) {
+            
+        }
 
     } else {
         
