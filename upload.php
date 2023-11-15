@@ -2,21 +2,50 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        print_r($_FILES);
+        // print_r($_FILES);
     
-        echo($_FILES["file"]["name"]) . "\n";
+        echo($_FILES["file"]["name"]) . "<br /><br />";
     
-        echo($_FILES["file"]["type"]) . "\n";
+        echo($_FILES["file"]["type"]) . "<br /><br />";
     
-        echo($_FILES["file"]["tmp_name"]) . "\n";
+        echo($_FILES["file"]["tmp_name"]) . "<br /><br />";
     
-        echo($_FILES["file"]["error"]) . "\n";
+        echo($_FILES["file"]["error"]) . "<br /><br />";
         
-        echo($_FILES["file"]["size"]) . "\n";
+        echo($_FILES["file"]["size"]) . "<br /><br />";
 
         switch ($_FILES["file"]["error"]) {
-            
+            case UPLOAD_ERR_NO_FILE:
+                echo("No file was selected");
+                break;
+            // case UPLOAD_ERR_FILE_SIZE:
+            //     echo("No file size greater than specified in the html file");
+            //     break;
+            case UPLOAD_ERR_PARTIAL:
+                echo("File was partially uploaded");
+                break;
+            // case UPLOAD_ERR_FILE_INVALID:
+            //     echo("Selected file isn't an image");
+            //     break;
+            // case UPLOAD_ERR_PHP_EXTENSION:
+            //     echo("File upload was stopped by a PHP extension");
+            //     break;
+            default:
+                echo("File sucessfully uploaded!<br/><br/>");
+                break;
         }
+
+        $mime_types = ["image/jpeg", "image/jpg", "image/png", "image/gif"];
+
+        $mime_type = $_FILES["file"]["type"];
+
+        if (array($mime_type, $mime_types)) {
+            echo "File is invalid";
+        } else {
+            echo "File is valid";
+        }
+
+
 
     } else {
         
