@@ -1,24 +1,32 @@
 <?php 
 
-    if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        print_r($_FILES);
+    
+        echo($_FILES["file"]["name"]) . "\n";
+    
+        echo($_FILES["file"]["type"]) . "\n";
+    
+        echo($_FILES["file"]["tmp_name"]) . "\n";
+    
+        echo($_FILES["file"]["error"]) . "\n";
+        
+        echo($_FILES["file"]["size"]) . "\n";
+
+        
+
+    } else {
+        
         echo "POST method not requested!";
+        
     }
     
-    print_r($_FILES);
-
-    echo($_FILES["file"]["name"]) . "\n";
-
-    echo($_FILES["file"]["type"]) . "\n";
-
-    echo($_FILES["file"]["tmp_name"]) . "\n";
-
-    echo($_FILES["file"]["error"]) . "\n";
     
-    echo($_FILES["file"]["size"]) . "\n";
-
+    
     
 
-
+    
     
     
 
@@ -28,15 +36,36 @@
     
 
     
-
     
     
-
     
     
-
     
-
+    
+    
+    
+    /*        switch ($_FILES["file"]["error"]) {
+                case UPLOAD_ERR_PARTIAL:
+                    exit("File partially uploaded!");
+                    break;
+                case UPLOAD_ERR_NO_FILE:
+                    exit("File partially uploaded!");
+                    break;
+                case UPLOAD_ERR_PARTIAL:
+                    exit("File partially uploaded!");
+                    break;
+                case UPLOAD_ERR_PARTIAL:
+                    exit("File partially uploaded!");
+                    break;
+                case UPLOAD_ERR_PARTIAL:
+                    exit("File partially uploaded!");
+                    break;
+                case UPLOAD_ERR_PARTIAL:
+                    exit("File partially uploaded!");
+                    break;
+            }
+    */
+    
     // w3schools
     
     /* 
