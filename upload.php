@@ -36,14 +36,17 @@
         }
 
         $mime_types = ["image/jpeg", "image/jpg", "image/png", "image/gif"];
-
+        
         $mime_type = $_FILES["file"]["type"];
 
-        if (array($mime_type, $mime_types)) {
-            echo "File is invalid";
-        } else {
+        if (in_array($mime_type, $mime_types)) {
             echo "File is valid";
+        } else {
+            echo "File is invalid";
         }
+
+        $file_name = $_FILES["file"]["name"];
+        $directory = __DIR__ . "uploads/" . $file_name;
 
 
 
