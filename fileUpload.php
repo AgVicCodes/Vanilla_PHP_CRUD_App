@@ -94,9 +94,9 @@
         </style>
     </head>
     <body>
-        <form action="./upload.php" method="POST" enctype="multipart/form-data">
+        <form action="./process_upload.php" method="POST" enctype="multipart/form-data">
             <!-- <input type="FILE_MAX_SIZE" value="10485697"> -->
-            <input type="file" name="file">
+            <input type="file" name="image">
             <img src="" alt="">
             <input type="submit" id="submit">
         </form>
