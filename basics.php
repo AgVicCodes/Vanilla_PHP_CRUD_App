@@ -482,6 +482,6 @@
     body {
         background: #eee;
         color: #3834f7;
-        font-family: "outfit";
+        font-family: outfit;
     }
 </style>
