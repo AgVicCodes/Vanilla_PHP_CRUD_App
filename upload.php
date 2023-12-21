@@ -18,18 +18,18 @@
             case UPLOAD_ERR_NO_FILE:
                 echo("No file was selected");
                 break;
-            // case UPLOAD_ERR_FILE_SIZE:
-            //     echo("No file size greater than specified in the html file");
-            //     break;
+            case UPLOAD_ERR_FILE_SIZE:
+                echo("No file size greater than specified in the html file");
+                break;
             case UPLOAD_ERR_PARTIAL:
                 echo("File was partially uploaded");
                 break;
-            // case UPLOAD_ERR_FILE_INVALID:
-            //     echo("Selected file isn't an image");
-            //     break;
-            // case UPLOAD_ERR_PHP_EXTENSION:
-            //     echo("File upload was stopped by a PHP extension");
-            //     break;
+            case UPLOAD_ERR_FILE_INVALID:
+                echo("Selected file isn't an image");
+                break;
+            case UPLOAD_ERR_PHP_EXTENSION:
+                echo("File upload was stopped by a PHP extension");
+                break;
             default:
                 echo("File sucessfully uploaded!<br/><br/>");
                 break;
@@ -47,6 +47,8 @@
 
         $file_name = $_FILES["file"]["name"];
         $directory = __DIR__ . "uploads/" . $file_name;
+
+        move_uploaded_file($file_name, $directory);
 
 
 
