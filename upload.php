@@ -15,9 +15,9 @@
         // echo($_FILES["image"]["size"]) . "<br /><br />";
 
         switch ($_FILES["image"]["error"]) {
-            case UPLOAD_ERR_OK:
-                echo("Upload Successful!");
-                break;
+            // case UPLOAD_ERR_OK:
+            //     echo("Upload Successful!");
+            //     break;
             case UPLOAD_ERR_INI_SIZE:
                 echo("No file size greater than specified in the php ini file");
                 break;
@@ -33,7 +33,7 @@
             case UPLOAD_ERR_NO_TMP_DIR:
                 echo("Temporary folder missing");
                 break;
-            case UPLOAD_ERR_FILE_CANT_WRITE:
+            case UPLOAD_ERR_CANT_WRITE:
                 echo("Selected file isn't an image");
                 break;
             case UPLOAD_ERR_EXTENSION:
@@ -49,17 +49,24 @@
         $mime_type = $_FILES["image"]["type"];
 
         if (in_array($mime_type, $mime_types)) {
-            echo "File is valid";
+            echo "File is valid<br><br>";
         } else {
-            echo "File is invalid";
+            echo "File is invalid<br><br>";
         }
 
+        $ext = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+
+        
         $file_name = $_FILES["image"]["name"];
-        $directory = __DIR__ . "uploads/" . $file_name;
+        $directory = __DIR__ . "/uploads/" . $file_name;
 
-        move_uploaded_file($file_name, $directory);
+        if (!move_uploaded_file($_FILES["image"]["tmp_name"], $directory)) {
+            echo "File upload failed<br><br>";
+        } else {
+            echo "Upload successful<br><br>";
+        }
 
-
+        echo $directory, "<br><br>", $file_name, "<br><br>", $ext;
 
     } else {
         
