@@ -4,40 +4,49 @@
 
         // print_r($_FILES);
     
-        echo($_FILES["file"]["name"]) . "<br /><br />";
+        // echo($_FILES["image"]["name"]) . "<br /><br />";
     
-        echo($_FILES["file"]["type"]) . "<br /><br />";
+        // echo($_FILES["image"]["type"]) . "<br /><br />";
     
-        echo($_FILES["file"]["tmp_name"]) . "<br /><br />";
+        // echo($_FILES["image"]["tmp_name"]) . "<br /><br />";
     
-        echo($_FILES["file"]["error"]) . "<br /><br />";
+        // echo($_FILES["image"]["error"]) . "<br /><br />";
         
-        echo($_FILES["file"]["size"]) . "<br /><br />";
+        // echo($_FILES["image"]["size"]) . "<br /><br />";
 
-        switch ($_FILES["file"]["error"]) {
-            case UPLOAD_ERR_NO_FILE:
-                echo("No file was selected");
+        switch ($_FILES["image"]["error"]) {
+            case UPLOAD_ERR_OK:
+                echo("Upload Successful!");
                 break;
-            case UPLOAD_ERR_FILE_SIZE:
+            case UPLOAD_ERR_INI_SIZE:
+                echo("No file size greater than specified in the php ini file");
+                break;
+            case UPLOAD_ERR_FORM_SIZE:
                 echo("No file size greater than specified in the html file");
                 break;
             case UPLOAD_ERR_PARTIAL:
                 echo("File was partially uploaded");
                 break;
-            case UPLOAD_ERR_FILE_INVALID:
+            case UPLOAD_ERR_NO_FILE:
+                echo("No file was selected");
+                break;
+            case UPLOAD_ERR_NO_TMP_DIR:
+                echo("Temporary folder missing");
+                break;
+            case UPLOAD_ERR_FILE_CANT_WRITE:
                 echo("Selected file isn't an image");
                 break;
-            case UPLOAD_ERR_PHP_EXTENSION:
+            case UPLOAD_ERR_EXTENSION:
                 echo("File upload was stopped by a PHP extension");
                 break;
             default:
-                echo("File sucessfully uploaded!<br/><br/>");
+                echo("Unknown Error!<br/><br/>");
                 break;
         }
 
         $mime_types = ["image/jpeg", "image/jpg", "image/png", "image/gif"];
         
-        $mime_type = $_FILES["file"]["type"];
+        $mime_type = $_FILES["image"]["type"];
 
         if (in_array($mime_type, $mime_types)) {
             echo "File is valid";
@@ -45,7 +54,7 @@
             echo "File is invalid";
         }
 
-        $file_name = $_FILES["file"]["name"];
+        $file_name = $_FILES["image"]["name"];
         $directory = __DIR__ . "uploads/" . $file_name;
 
         move_uploaded_file($file_name, $directory);
@@ -80,7 +89,7 @@
     
     
     
-    /*        switch ($_FILES["file"]["error"]) {
+    /*        switch ($_FILES["image"]["error"]) {
                 case UPLOAD_ERR_PARTIAL:
                     exit("File partially uploaded!");
                     break;
