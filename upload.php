@@ -15,9 +15,9 @@
         // echo($_FILES["image"]["size"]) . "<br /><br />";
 
         switch ($_FILES["image"]["error"]) {
-            // case UPLOAD_ERR_OK:
-            //     echo("Upload Successful!");
-            //     break;
+            case UPLOAD_ERR_OK:
+                echo("");
+                break;
             case UPLOAD_ERR_INI_SIZE:
                 echo("No file size greater than specified in the php ini file");
                 break;
@@ -54,19 +54,36 @@
             echo "File is invalid<br><br>";
         }
 
-        $ext = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+        $pathinfo = pathinfo($_FILES["image"]["name"]);
 
+        $ext = $pathinfo["extension"];
+
+        $base = $pathinfo["filename"];
         
-        $file_name = $_FILES["image"]["name"];
+        $base = preg_replace("/[^\w-]/", "_", $base);
+
+        $file_name = $base . "." .$ext;
+
+        echo $file_name;
+        
         $directory = __DIR__ . "/uploads/" . $file_name;
+
+        $i = 1;
+
+        while (file_exists($directory)) {
+            $file_name = $base . "($i)." .$ext;
+            // echo $file_name . " exists <br>";
+            $directory = __DIR__ . "/uploads/" . $file_name;
+            $i++;
+        }
 
         if (!move_uploaded_file($_FILES["image"]["tmp_name"], $directory)) {
             echo "File upload failed<br><br>";
         } else {
-            echo "Upload successful<br><br>";
+            echo "File " . $file_name . " has been uploaded successfully<br><br>";
         }
 
-        echo $directory, "<br><br>", $file_name, "<br><br>", $ext;
+        // echo $directory, "<br><br>", $file_name, "<br><br>", $ext;
 
     } else {
         
