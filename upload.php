@@ -2,18 +2,6 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        // print_r($_FILES);
-    
-        // echo($_FILES["image"]["name"]) . "<br /><br />";
-    
-        // echo($_FILES["image"]["type"]) . "<br /><br />";
-    
-        // echo($_FILES["image"]["tmp_name"]) . "<br /><br />";
-    
-        // echo($_FILES["image"]["error"]) . "<br /><br />";
-        
-        // echo($_FILES["image"]["size"]) . "<br /><br />";
-
         switch ($_FILES["image"]["error"]) {
             case UPLOAD_ERR_OK:
                 echo("");
@@ -71,8 +59,7 @@
         $i = 1;
 
         while (file_exists($directory)) {
-            $file_name = $base . "($i)." .$ext;
-            // echo $file_name . " exists <br>";
+            $file_name = $base . "_$i." .$ext;
             $directory = __DIR__ . "/uploads/" . $file_name;
             $i++;
         }
