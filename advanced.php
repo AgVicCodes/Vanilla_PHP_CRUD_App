@@ -1,6 +1,13 @@
 <?php
 
-    
+
+    $str = "<h1>The Boy is running</h1>";
+    echo $str;
+    echo filter_var($str, FILTER_SANITIZE_STRING);
+
+    // foreach (filter_list() as $id =>$filter) {
+    //     echo '<tr><td>' . $filter . '</td><td>' . filter_id($filter) . '</td></tr>';
+    // }
 
     // Php dates
     /*
@@ -10,6 +17,7 @@
         l - Day of the week. Mon to Fri.
     */
     // echo date("l") . " " . date("d") . "-" . date("m") . "-" . date("y");
+    echo "<br />";
     echo date("l d-m-y");
     echo "<br />";
 

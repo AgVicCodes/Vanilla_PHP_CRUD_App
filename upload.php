@@ -1,5 +1,89 @@
 <?php 
 
+    /* 
+        1. Check for errors
+        2. Check if file type is valid
+        3. Create destination
+        4. Check for duplicity
+    */
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        
+        switch ($_FILES["image"]["error"]) {
+            case UPLOAD_ERR_OK;
+                echo "";
+                break;
+            case UPLOAD_ERR_INI_SIZE;
+                echo "File was successfully uploaded";
+                break;
+            case UPLOAD_ERR_FORM_SIZE;
+                echo "File was successfully uploaded";
+                break;
+            case UPLOAD_ERR_PARTIAL;
+                echo "File was successfully uploaded";
+                break;
+            case UPLOAD_ERR_TMP_DIR;
+                echo "File was successfully uploaded";
+                break;
+            case UPLOAD_ERR_EXTENSION;
+                echo "File was successfully uploaded";
+                break;
+            case UPLOAD_ERR_NO_FILE;
+                echo "File was successfully uploaded";
+                break;
+            case UPLOAD_ERR_CANT_WRITE;
+                echo "File was successfully uploaded";
+                break;
+            default;
+                echo "Unknown error!";
+                break;
+        }
+
+        $mime_types = array("image/png", "image/jpg", "image/gif");
+        $mime_type = $_FILES["image"]["type"];
+
+        if (!in_array($mime_type, $mime_types)) {
+            echo "File invalid <br>";
+        } else {
+            echo "File is Valid <br>";
+        }
+        
+        $pathinfo = pathinfo($_FILES["image"]["name"]);
+        
+        $filename = $pathinfo["filename"];
+        
+        $extension = $pathinfo["extension"];
+        
+        $filename = preg_replace("/[ \^w-]/", "_", $filename);
+        
+        $directory = __DIR__ . "/uploads/" . "$filename";
+        
+        // echo $filename . " <br> " . $extension . " <br> " . $directory . " <br> ";
+
+        $i = 1;
+        while (file_exists($directory)) {
+            $filename = $filename . "($i)." . $extension;
+            $directory = __DIR__ . "/uploads/" . "$filename";
+            $i++;
+        }
+
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $directory)) {
+
+            echo "File uploaded successfully";
+
+        } else {
+            echo "File upload failed";
+        }
+
+        // echo $filename;
+
+    } else {
+        echo "POST method not requested!";
+    }
+
+
+    /*
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         switch ($_FILES["image"]["error"]) {
@@ -76,7 +160,7 @@
         
         echo "POST method not requested!";
         
-    }
+    }*/
     
     
     
@@ -211,5 +295,5 @@
             echo "Error: ". $_FILES["fileToUpload"]["error"]; 
         } 
     } */
-
 ?>
+
