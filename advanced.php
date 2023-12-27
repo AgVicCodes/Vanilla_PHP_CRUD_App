@@ -5,6 +5,13 @@
     echo $str;
     echo filter_var($str, FILTER_SANITIZE_STRING);
 
+    $int = 37;
+    echo $int;
+    if(filter_var($int, FILTER_VALIDATE_INT) === false) {
+        echo "Integer is invalid";
+    } else {
+        echo "Integer is valid";
+    }
     // foreach (filter_list() as $id =>$filter) {
     //     echo '<tr><td>' . $filter . '</td><td>' . filter_id($filter) . '</td></tr>';
     // }
